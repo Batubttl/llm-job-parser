@@ -26,6 +26,10 @@ class JobPosting(BaseModel):
     title: str = Field(description="Job title, e.g. 'Werkstudent AI Infrastructure'.")
     company: str | None = Field(default=None, description="Hiring company name.")
     location: str | None = Field(default=None, description="City or region.")
+    language: str | None = Field(
+        default=None,
+        description="Language of the posting as a two-letter ISO 639-1 code, e.g. 'de' or 'en'.",
+    )
     skills: list[str] = Field(default_factory=list, description="Required technical skills.")
     remote: bool | None = Field(default=None, description="True if remote work is possible.")
     employment_type: (
