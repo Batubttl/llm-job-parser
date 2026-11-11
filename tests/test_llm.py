@@ -4,6 +4,7 @@ from collections.abc import Callable
 from types import SimpleNamespace
 from typing import Any
 
+import litellm
 import pytest
 
 from app import llm
@@ -21,7 +22,7 @@ def fake_completion(content: str) -> Callable[..., SimpleNamespace]:
 
 def test_valid_llm_json_is_parsed(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        llm.litellm,
+        litellm,
         "completion",
         fake_completion('{"title": "Data Engineer", "skills": ["SQL"]}'),
     )
@@ -35,7 +36,7 @@ def test_valid_llm_json_is_parsed(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_llm_json_with_wrong_types_raises(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        llm.litellm,
+        litellm,
         "completion",
         fake_completion('{"title": "Data Engineer", "skills": "SQL"}'),
     )
@@ -46,7 +47,7 @@ def test_llm_json_with_wrong_types_raises(monkeypatch: pytest.MonkeyPatch) -> No
 
 def test_llm_non_json_output_raises(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        llm.litellm,
+        litellm,
         "completion",
         fake_completion("Sure! Here is the job posting as JSON..."),
     )

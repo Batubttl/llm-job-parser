@@ -10,8 +10,7 @@ from app.schemas import JobPosting
 client = TestClient(main.app)
 
 SAMPLE_TEXT = (
-    "ArtiQuare is hiring a Werkstudent AI Infrastructure in Munich. "
-    "Python and Docker are required."
+    "ArtiQuare is hiring a Werkstudent AI Infrastructure in Munich. Python and Docker are required."
 )
 
 
