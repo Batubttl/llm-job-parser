@@ -27,6 +27,7 @@ huggingface_hub==1.33.0
 hyperframe==6.1.0
 idna==3.20
 importlib_metadata==8.9.0
+iniconfig==2.3.1
 Jinja2==3.1.6
 jiter==0.19.0
 jmespath==1.1.0
@@ -38,10 +39,13 @@ multidict==7.2.1
 openai==3.46.0
 opentelemetry-api==1.45.2
 packaging==26.3
+pluggy==1.7.0
 propcache==0.5.4
 pydantic==2.14.3
 pydantic-settings==2.16.2
 pydantic_core==2.50.4
+Pygments==2.21.0
+pytest==9.2.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.4
 PyYAML==6.0.3

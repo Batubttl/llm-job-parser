@@ -4,6 +4,9 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+MIN_TEXT_LENGTH = 20
+MAX_TEXT_LENGTH = 20_000
+
 
 class ParseRequest(BaseModel):
     """Incoming request: the raw job posting text."""
@@ -11,8 +14,8 @@ class ParseRequest(BaseModel):
     model_config = ConfigDict(strict=True, extra="forbid")
 
     text: str = Field(
-        min_length=20,
-        max_length=20_000,
+        min_length=MIN_TEXT_LENGTH,
+        max_length=MAX_TEXT_LENGTH,
         description="Raw job posting text copied from a job board.",
     )
 
